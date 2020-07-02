@@ -20,5 +20,5 @@ Let's build open source, non for profit, democratic dance community together ðŸ™
 ## Okay, I am in! What can I do?
 
 1. [Introduce yourself](https://github.com/we-dance/community/issues/1)
-2. [Start a new discussion](https://github.com/we-dance/community/issues/)
-3. Collaborate!
+2. [Participate in discussions](https://github.com/we-dance/community/issues/)
+3. [Start a new discussion](https://github.com/we-dance/community/issues/new)
