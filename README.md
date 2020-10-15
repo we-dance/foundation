@@ -1,5 +1,7 @@
 # WeDance Foundation
 
+[![Join the chat at https://gitter.im/we-dance/foundation](https://badges.gitter.im/we-dance/foundation.svg)](https://gitter.im/we-dance/foundation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 We are non-government organisation to support and spread dancing around the world by enabling collaboration and development and bringing experts from different fields to create and support dance infrastructure.
 
 **Open**: WeDance Foundation provides support for dance projects and their communities, furthering its mission of providing Open Source software for the public good.
