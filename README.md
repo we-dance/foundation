@@ -13,6 +13,7 @@ We are non-government organisation to support and spread dancing around the worl
 ## Active Projects (What do we do?)
 
 - [Awesome Dance](https://github.com/we-dance/awesome-dance) - a curated list of awesome dance apps and services
+- [WeDance Platform](https://github.com/we-dance/platform) – community platform for dancers
 - [Dance Events API](https://github.com/we-dance/foundation/issues/3) - initiative to define API standard for dance events
 - [Dance Styles API](https://github.com/we-dance/dance-styles) – API for dances with relations, properties, descriptions and translations
 
