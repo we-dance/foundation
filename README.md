@@ -1,6 +1,6 @@
 # WeDance Foundation
 
-[![Join the chat at https://gitter.im/we-dance/foundation](https://badges.gitter.im/we-dance/foundation.svg)](https://gitter.im/we-dance/foundation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Chat on Telegram](https://img.shields.io/badge/Chat%20on-Telegram-brightgreen.svg)](https://t.me/joinchat/VbSR8oxxqSAcNQuV)  
 
 We are non-government organisation to support and spread dancing around the world by enabling collaboration and development and bringing experts from different fields to create and support dance infrastructure.
 
