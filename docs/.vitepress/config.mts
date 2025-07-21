@@ -10,8 +10,11 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: "Examples",
-        items: [{ text: "Organization", link: "/organization" }],
+        text: "Strategy",
+        items: [
+          { text: "Organization", link: "/organization" },
+          { text: "Brand", link: "/brand" },
+        ],
       },
     ],
 

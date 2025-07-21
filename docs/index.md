@@ -4,21 +4,21 @@ layout: home
 
 hero:
   name: "WeDance HQ"
-  text: "Organization documentation"
-  tagline: My great project tagline
+  text: "Internal Documentation"
+  tagline: Team resources, organization structure, and contribution guidelines for building the global dance platform together.
   actions:
     - theme: brand
-      text: Read more
+      text: Organization Canvas
       link: /organization
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Brand Guidelines
+      link: /brand
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 📋 Organization Structure
+    details: Understand our mission, values, business model, and strategic approach. Learn about our Sociocracy 3.0 governance and how decisions are made.
+  - title: 🎨 Brand & Identity
+    details: Brand guidelines, messaging, tone of voice, and visual identity standards. Ensure consistent communication across all WeDance touchpoints.
+  - title: 🤝 Contributing
+    details: How to get involved, contribute code, provide feedback, and help grow the platform. Resources for developers, designers, and community builders.
 ---
