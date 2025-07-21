@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeDance - Built by dancers. Made for you.</title>
+    <meta
+      name="description"
+      content="Unite the global dance community. Find events, partners, and opportunities. Less scroll, more soul."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#f59e0b",
+              accent: "#ec4899",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .dance-animation {
+        animation: dance 3s ease-in-out infinite;
+      }
+      @keyframes dance {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+        75% {
+          transform: translateY(-5px) rotate(-1deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <div class="text-2xl font-bold text-primary">WeDance</div>
+            <span class="ml-3 text-sm text-gray-600 hidden sm:block"
+              >Built by dancers. Made for you.</span
+            >
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#events"
+              class="text-gray-700 hover:text-primary transition-colors"
+              >Events</a
+            >
+            <a
+              href="#community"
+              class="text-gray-700 hover:text-primary transition-colors"
+              >Community</a
+            >
+            <a
+              href="#artists"
+              class="text-gray-700 hover:text-primary transition-colors"
+              >Artists</a
+            >
+            <a
+              href="#organizers"
+              class="text-gray-700 hover:text-primary transition-colors"
+              >Organizers</a
+            >
+          </div>
+          <div class="flex space-x-4">
+            <button
+              class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+            >
+              Join Community
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              Your dance world,
+              <span class="text-yellow-300">all in one place</span>
+            </h1>
+            <p class="text-xl mb-8 text-gray-100 leading-relaxed">
+              Unite with the global dance community. Discover events, find
+              partners, learn from masters, and build unforgettable experiences
+              — together, joyfully, with full ownership of your journey.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                class="bg-accent text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-pink-600 transition-colors"
+              >
+                🎉 Start Dancing Now
+              </button>
+              <button
+                class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-800 transition-colors"
+              >
+                📅 Create Event
+              </button>
+            </div>
+          </div>
+          <div class="text-center">
+            <div class="dance-animation text-8xl mb-4">💃</div>
+            <p class="text-lg text-gray-200">
+              Join thousands of dancers worldwide
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">
+          Tired of scattered dance info and closed WhatsApp groups?
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-6">
+            <div class="text-4xl mb-4">📱</div>
+            <h3 class="font-semibold text-lg mb-2">Information Chaos</h3>
+            <p class="text-gray-600">
+              Events scattered across private chats, outdated Facebook posts,
+              and confusing websites
+            </p>
+          </div>
+          <div class="p-6">
+            <div class="text-4xl mb-4">🚪</div>
+            <h3 class="font-semibold text-lg mb-2">Closed Communities</h3>
+            <p class="text-gray-600">
+              Exclusive groups that limit newcomers and slow community growth
+            </p>
+          </div>
+          <div class="p-6">
+            <div class="text-4xl mb-4">⏰</div>
+            <h3 class="font-semibold text-lg mb-2">Inefficient Planning</h3>
+            <p class="text-gray-600">
+              Hours wasted on admin tasks instead of building amazing dance
+              experiences
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Propositions -->
+    <section id="events" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">
+            Dance Without Borders
+          </h2>
+          <p class="text-xl text-gray-600">
+            From Tokyo to Berlin, find your next favorite party
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- For New Dancers -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <div class="text-5xl mb-4">🌱</div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">New to Dance?</h3>
+            <p class="text-gray-600 mb-4">
+              Find beginner-friendly classes and welcoming communities. No
+              pressure, just fun.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>✓ Beginner-friendly events</li>
+              <li>✓ Safe, welcoming spaces</li>
+              <li>✓ Try different styles</li>
+            </ul>
+          </div>
+
+          <!-- For Social Dancers -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <div class="text-5xl mb-4">🕺</div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Social Dancers</h3>
+            <p class="text-gray-600 mb-4">
+              Discover quality events and trusted partners anywhere you travel.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>✓ Curated event listings</li>
+              <li>✓ Partner matching</li>
+              <li>✓ Travel-friendly</li>
+            </ul>
+          </div>
+
+          <!-- For Organizers -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <div class="text-5xl mb-4">🎪</div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              Event Organizers
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Launch and manage events in hours, not weeks. All tools in one
+              place.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>✓ Quick event setup</li>
+              <li>✓ Integrated ticketing</li>
+              <li>✓ Analytics & insights</li>
+            </ul>
+          </div>
+
+          <!-- For Artists -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <div class="text-5xl mb-4">🎨</div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              Artists & Teachers
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Earn, share, and shine across the global dance scene.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>✓ Online content sales</li>
+              <li>✓ Booking platform</li>
+              <li>✓ Global reach</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="community" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">
+            Powered by Community
+          </h2>
+          <p class="text-xl text-gray-600">
+            We don't just list events — we co-create them
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Dance community"
+              class="rounded-xl shadow-2xl"
+            />
+          </div>
+          <div>
+            <div class="space-y-8">
+              <div class="flex items-start space-x-4">
+                <div class="text-3xl">🤝</div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">
+                    Trust-Based Partner Finding
+                  </h3>
+                  <p class="text-gray-600">
+                    Connect with verified dancers who match your style and
+                    boundaries. Safe connections, every time.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="text-3xl">🌍</div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">
+                    Cross-City Connections
+                  </h3>
+                  <p class="text-gray-600">
+                    Your dance network travels with you. Find familiar faces in
+                    new cities.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="text-3xl">🎯</div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">
+                    Style-Specific Communities
+                  </h3>
+                  <p class="text-gray-600">
+                    From salsa to hip-hop, each style has its own dedicated
+                    space with specialized features.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-primary to-accent text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-bold mb-6">
+          Ready to Make Moves, Not Just Posts?
+        </h2>
+        <p class="text-xl mb-8 text-gray-100">
+          Join thousands of dancers building the future of dance communities
+          worldwide
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="text-center">
+            <div class="text-4xl font-bold mb-2">48hrs</div>
+            <p class="text-gray-200">To launch your event</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold mb-2">15+</div>
+            <p class="text-gray-200">Dance styles supported</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold mb-2">Global</div>
+            <p class="text-gray-200">Community reach</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors"
+          >
+            🚀 Start Building Today
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-primary transition-colors"
+          >
+            📖 Learn More
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Built on Dance Values
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center p-6">
+            <div class="text-4xl mb-4">🎯</div>
+            <h3 class="text-xl font-semibold mb-3">Reliability</h3>
+            <p class="text-gray-600">
+              Trust through accuracy, transparency, and consistency. No ghost
+              events, no missing details.
+            </p>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-4xl mb-4">💪</div>
+            <h3 class="text-xl font-semibold mb-3">Empowerment</h3>
+            <p class="text-gray-600">
+              Tools and support to help everyone lead, create, and own their
+              dance journey.
+            </p>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-4xl mb-4">🤝</div>
+            <h3 class="text-xl font-semibold mb-3">Collaboration</h3>
+            <p class="text-gray-600">
+              Working together with trust, respect, and shared responsibility
+              for our community.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <div class="text-2xl font-bold text-primary mb-4">WeDance</div>
+            <p class="text-gray-300 mb-4">Built by dancers. Made for you.</p>
+            <p class="text-gray-400 text-sm">
+              Unite the global dance community through technology, making every
+              dancer feel seen, supported, and empowered.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Platform</h4>
+            <ul class="space-y-2 text-gray-300">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Find Events</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Create Event</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Find Partners</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Online Classes</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Community</h4>
+            <ul class="space-y-2 text-gray-300">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Dance Styles</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Artist Directory</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Venue Network</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Ambassador Program</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Company</h4>
+            <ul class="space-y-2 text-gray-300">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Open Source</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Privacy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2024 WeDance. Less scroll, more soul. 💃</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
