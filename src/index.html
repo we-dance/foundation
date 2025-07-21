@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,6 +17,76 @@
               primary: "#6366f1",
               secondary: "#f59e0b",
               accent: "#ec4899",
+              neon: {
+                blue: "#00d4ff",
+                purple: "#b347d9",
+                pink: "#ff1694",
+                green: "#39ff14",
+                orange: "#ff6b35",
+              },
+            },
+            fontFamily: {
+              clash: ["Clash Display", "Inter", "sans-serif"],
+              space: ["Space Grotesk", "Inter", "monospace"],
+            },
+            backdropBlur: {
+              xs: "2px",
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              glow: "glow 2s ease-in-out infinite alternate",
+              gradient: "gradient 8s linear infinite",
+              "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "bounce-slow": "bounce 3s infinite",
+              wiggle: "wiggle 1s ease-in-out infinite",
+              morphing: "morphing 8s ease-in-out infinite",
+              "slide-up": "slideUp 0.8s ease-out",
+              "slide-in": "slideIn 0.8s ease-out",
+              "fade-in": "fadeIn 1s ease-out",
+              shimmer: "shimmer 3s ease infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+                "50%": { transform: "translateY(-20px) rotate(2deg)" },
+              },
+              glow: {
+                "0%": { "box-shadow": "0 0 20px rgba(0, 212, 255, 0.5)" },
+                "100%": {
+                  "box-shadow":
+                    "0 0 30px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 212, 255, 0.3)",
+                },
+              },
+              gradient: {
+                "0%, 100%": { "background-position": "0% 50%" },
+                "50%": { "background-position": "100% 50%" },
+              },
+              wiggle: {
+                "0%, 100%": { transform: "rotate(-3deg)" },
+                "50%": { transform: "rotate(3deg)" },
+              },
+              morphing: {
+                "0%, 100%": { "border-radius": "20px" },
+                "25%": { "border-radius": "50px 20px" },
+                "50%": { "border-radius": "20px 50px" },
+                "75%": { "border-radius": "50px" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(50px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              slideIn: {
+                "0%": { transform: "translateX(-50px)", opacity: "0" },
+                "100%": { transform: "translateX(0)", opacity: "1" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              shimmer: {
+                "0%": { "background-position": "-200% 0" },
+                "100%": { "background-position": "200% 0" },
+              },
             },
           },
         },
@@ -25,259 +95,802 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&display=swap");
+
+      :root {
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-neon: linear-gradient(
+          45deg,
+          #00d4ff,
+          #b347d9,
+          #ff1694,
+          #39ff14
+        );
+        --gradient-mesh: radial-gradient(
+            circle at 20% 80%,
+            rgba(120, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 22, 148, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(57, 255, 20, 0.3) 0%,
+            transparent 50%
+          );
+        --glass-bg: rgba(255, 255, 255, 0.08);
+        --glass-border: rgba(255, 255, 255, 0.18);
+      }
+
+      * {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Inter", sans-serif;
+        background: #0a0a0a;
+        color: #ffffff;
+        overflow-x: hidden;
       }
-      .gradient-bg {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+      .mesh-gradient {
+        background: var(--gradient-mesh);
+        background-size: 200% 200%;
+        animation: gradient 8s ease infinite;
       }
-      .dance-animation {
-        animation: dance 3s ease-in-out infinite;
+
+      .glass-morphism {
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
       }
-      @keyframes dance {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
+
+      .text-gradient {
+        background: var(--gradient-neon);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient 3s ease infinite;
+      }
+
+      .neon-glow {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.5),
+          0 0 40px rgba(0, 212, 255, 0.3), 0 0 60px rgba(0, 212, 255, 0.2);
+      }
+
+      .video-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+        z-index: -1;
+      }
+
+      .floating-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .shape {
+        position: absolute;
+        background: var(--gradient-neon);
+        border-radius: 50%;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .shape:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .shape:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        top: 60%;
+        left: 80%;
+        animation-delay: 2s;
+      }
+      .shape:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        top: 80%;
+        left: 20%;
+        animation-delay: 4s;
+      }
+      .shape:nth-child(4) {
+        width: 100px;
+        height: 100px;
+        top: 30%;
+        left: 70%;
+        animation-delay: 1s;
+      }
+
+      .music-visualizer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gradient-neon);
+        background-size: 400% 400%;
+        animation: gradient 2s ease infinite;
+      }
+
+      .holographic {
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 70%
+        );
+        background-size: 200% 200%;
+        animation: shimmer 3s ease infinite;
+      }
+
+      .custom-cursor {
+        cursor: none;
+      }
+
+      .cursor-dot {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        background: #00d4ff;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        mix-blend-mode: difference;
+      }
+
+      .cursor-outline {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border: 2px solid rgba(0, 212, 255, 0.5);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transition: all 0.1s ease;
+      }
+
+      .scroll-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gradient-neon);
+        transform-origin: 0%;
+        z-index: 9999;
+      }
+
+      @media (max-width: 768px) {
+        .custom-cursor {
+          cursor: auto;
         }
-        25% {
-          transform: translateY(-10px) rotate(2deg);
+        .cursor-dot,
+        .cursor-outline {
+          display: none;
         }
-        75% {
-          transform: translateY(-5px) rotate(-1deg);
-        }
+      }
+
+      .perspective-card {
+        transform-style: preserve-3d;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      .perspective-card:hover {
+        transform: rotateY(10deg) rotateX(10deg);
+      }
+
+      .magnetic-effect {
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      .before-line {
+        position: relative;
+      }
+
+      .before-line::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -20px;
+        width: 4px;
+        height: 100%;
+        background: var(--gradient-neon);
+        transform: translateY(-50%);
+        border-radius: 2px;
       }
     </style>
   </head>
-  <body class="bg-gray-50">
-    <!-- Live Activity Banner -->
-    <div
-      class="bg-gradient-to-r from-green-400 to-blue-500 text-white text-center py-2 text-sm"
-    >
-      <span class="animate-pulse">🔴 LIVE:</span>
-      <span id="live-counter">247</span> dancers online •
-      <span id="events-today">23</span> events today •
-      <span id="new-members">12</span> new members this hour
-    </div>
+  <body class="bg-black text-white custom-cursor overflow-x-hidden">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <div class="flex items-center">
-            <div class="text-2xl font-bold text-primary">WeDance</div>
-            <span class="ml-3 text-sm text-gray-600 hidden sm:block"
-              >Built by dancers. Made for you.</span
-            >
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scroll-indicator"></div>
+
+    <!-- Live Status Bar -->
+    <div class="fixed top-0 left-0 right-0 z-50 glass-morphism">
+      <div class="max-w-7xl mx-auto px-4 py-2">
+        <div class="flex items-center justify-between text-xs">
+          <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-2">
+              <div
+                class="w-2 h-2 bg-neon-green rounded-full animate-pulse"
+              ></div>
+              <span class="text-neon-blue font-space"
+                ><span id="live-dancers">15,247</span> dancers online</span
+              >
+            </div>
+            <div class="hidden md:flex items-center space-x-2">
+              <span class="text-neon-pink">🔥</span>
+              <span class="text-gray-300"
+                ><span id="events-happening">127</span> events this
+                weekend</span
+              >
+            </div>
+            <div class="hidden lg:flex items-center space-x-2">
+              <span class="text-neon-orange">⚡</span>
+              <span class="text-gray-300"
+                ><span id="new-signups">23</span> new members today</span
+              >
+            </div>
           </div>
-          <!-- Style-Specific Navigation -->
-          <div class="hidden lg:flex space-x-6 text-sm">
-            <a
-              href="#salsa"
-              class="flex items-center text-gray-700 hover:text-primary transition-colors"
-            >
-              💃 Salsa & Bachata
-            </a>
-            <a
-              href="#swing"
-              class="flex items-center text-gray-700 hover:text-primary transition-colors"
-            >
-              🎷 Swing & Lindy
-            </a>
-            <a
-              href="#hip-hop"
-              class="flex items-center text-gray-700 hover:text-primary transition-colors"
-            >
-              🎤 Hip-Hop
-            </a>
-            <a
-              href="#ballroom"
-              class="flex items-center text-gray-700 hover:text-primary transition-colors"
-            >
-              👑 Ballroom
-            </a>
-            <a
-              href="#all-styles"
-              class="flex items-center text-gray-700 hover:text-primary transition-colors"
-            >
-              ⭐ All Styles
-            </a>
-          </div>
-          <div class="flex space-x-3">
+          <div class="flex items-center space-x-4">
+            <span class="text-xs text-gray-400">Join the movement</span>
             <button
-              class="text-gray-600 hover:text-primary transition-colors px-3 py-2"
+              class="bg-neon-blue/20 hover:bg-neon-blue/30 border border-neon-blue/50 text-neon-blue px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 hover:shadow-lg hover:shadow-neon-blue/25"
             >
               Sign In
             </button>
-            <button
-              class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
-            >
-              Find Events Now
-            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-12 left-0 right-0 z-40 mt-4">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="glass-morphism rounded-2xl">
+          <div class="flex justify-between items-center h-16 px-6">
+            <div class="flex items-center space-x-4">
+              <div class="text-2xl font-clash font-bold">
+                <span class="text-gradient">WeDance</span>
+              </div>
+              <div class="hidden md:block text-xs text-gray-400 font-space">
+                Built by dancers. Made for you.
+              </div>
+            </div>
+
+            <!-- Dance Style Navigation -->
+            <div class="hidden lg:flex items-center space-x-1">
+              <a
+                href="#salsa"
+                class="group px-4 py-2 rounded-xl hover:bg-white/10 transition-all duration-300"
+              >
+                <span
+                  class="text-neon-pink group-hover:text-white transition-colors"
+                  >💃</span
+                >
+                <span class="ml-2 text-sm font-medium group-hover:text-white"
+                  >Salsa</span
+                >
+              </a>
+              <a
+                href="#swing"
+                class="group px-4 py-2 rounded-xl hover:bg-white/10 transition-all duration-300"
+              >
+                <span
+                  class="text-neon-blue group-hover:text-white transition-colors"
+                  >🎷</span
+                >
+                <span class="ml-2 text-sm font-medium group-hover:text-white"
+                  >Swing</span
+                >
+              </a>
+              <a
+                href="#hip-hop"
+                class="group px-4 py-2 rounded-xl hover:bg-white/10 transition-all duration-300"
+              >
+                <span
+                  class="text-neon-green group-hover:text-white transition-colors"
+                  >🎤</span
+                >
+                <span class="ml-2 text-sm font-medium group-hover:text-white"
+                  >Hip-Hop</span
+                >
+              </a>
+              <a
+                href="#ballroom"
+                class="group px-4 py-2 rounded-xl hover:bg-white/10 transition-all duration-300"
+              >
+                <span
+                  class="text-neon-orange group-hover:text-white transition-colors"
+                  >👑</span
+                >
+                <span class="ml-2 text-sm font-medium group-hover:text-white"
+                  >Ballroom</span
+                >
+              </a>
+            </div>
+
+            <div class="flex items-center space-x-3">
+              <button
+                class="hidden md:block text-gray-300 hover:text-white px-4 py-2 transition-colors"
+              >
+                Explore
+              </button>
+              <button
+                class="bg-gradient-to-r from-neon-blue to-neon-purple hover:from-neon-purple hover:to-neon-pink text-white px-6 py-2.5 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-neon-blue/25 neon-glow"
+              >
+                Find Events
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="gradient-bg text-white py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Social Proof Header -->
-        <div class="text-center mb-8">
-          <div class="flex justify-center items-center space-x-8 text-sm mb-4">
+    <!-- Immersive Hero Section -->
+    <section
+      class="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      <!-- Animated Background -->
+      <div class="absolute inset-0 mesh-gradient"></div>
+
+      <!-- Floating Shapes -->
+      <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+
+      <!-- Video Background -->
+      <video autoplay muted loop class="video-bg">
+        <source
+          src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1"
+          type="video/mp4"
+        />
+      </video>
+
+      <!-- Music Visualizer -->
+      <div class="music-visualizer"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32">
+        <!-- Social Proof Floating -->
+        <div class="text-center mb-12 animate-fade-in">
+          <div
+            class="inline-flex items-center space-x-6 glass-morphism rounded-full px-8 py-3 mb-8"
+          >
             <div class="flex items-center space-x-2">
-              <span
-                class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
-              ></span>
-              <span>Join 50,000+ dancers in 25+ countries</span>
+              <div
+                class="w-3 h-3 bg-neon-green rounded-full animate-pulse"
+              ></div>
+              <span class="text-neon-blue font-space text-sm font-medium"
+                >Join 50,000+ dancers</span
+              >
             </div>
-            <div class="hidden md:block">|</div>
+            <div class="hidden md:block w-px h-4 bg-white/20"></div>
             <div class="hidden md:flex items-center space-x-2">
-              <span>⭐</span>
-              <span>4.9/5 from 12,847 reviews</span>
+              <span class="text-neon-orange">⭐</span>
+              <span class="text-sm text-gray-300"
+                >4.9/5 from 12,847 reviews</span
+              >
             </div>
           </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <!-- Location-Aware Headline -->
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Find amazing
-              <span class="text-yellow-300">dance events</span>
-              <span id="location-text" class="text-3xl block mt-2"
-                >near you</span
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <!-- Left Content -->
+          <div class="space-y-8 animate-slide-in">
+            <!-- Main Headline -->
+            <div class="space-y-4">
+              <h1
+                class="text-6xl lg:text-8xl font-clash font-bold leading-none"
               >
-            </h1>
-            <p class="text-xl mb-6 text-gray-100 leading-relaxed">
-              Stop scrolling through confusing WhatsApp groups. Discover quality
-              events, connect with verified partners, and build your dance
-              community — all in one trusted platform.
+                <span class="block">Find your</span>
+                <span class="block text-gradient animate-gradient"
+                  >dance tribe</span
+                >
+                <span
+                  id="location-text"
+                  class="block text-4xl lg:text-6xl text-gray-300 font-medium"
+                  >worldwide</span
+                >
+              </h1>
+            </div>
+
+            <!-- Subtitle -->
+            <p
+              class="text-xl lg:text-2xl text-gray-300 leading-relaxed font-light max-w-xl"
+            >
+              Stop scrolling through
+              <span class="text-red-400 line-through"
+                >chaotic WhatsApp groups</span
+              >. <br />Discover
+              <span class="text-neon-blue font-medium">verified events</span>,
+              connect with
+              <span class="text-neon-pink font-medium">trusted partners</span>,
+              and build your dance community.
             </p>
 
             <!-- Quick Value Props -->
-            <div class="grid grid-cols-2 gap-4 mb-8 text-sm">
-              <div class="flex items-center space-x-2">
-                <span>✓</span>
-                <span>Events verified by locals</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex items-center space-x-3 before-line">
+                <div class="w-2 h-2 bg-neon-green rounded-full"></div>
+                <span class="text-gray-300">Events verified by locals</span>
               </div>
-              <div class="flex items-center space-x-2">
-                <span>✓</span>
-                <span>Safe partner matching</span>
+              <div class="flex items-center space-x-3 before-line">
+                <div class="w-2 h-2 bg-neon-blue rounded-full"></div>
+                <span class="text-gray-300">Safe partner matching</span>
               </div>
-              <div class="flex items-center space-x-2">
-                <span>✓</span>
-                <span>No hidden fees</span>
+              <div class="flex items-center space-x-3 before-line">
+                <div class="w-2 h-2 bg-neon-pink rounded-full"></div>
+                <span class="text-gray-300">Zero hidden fees</span>
               </div>
-              <div class="flex items-center space-x-2">
-                <span>✓</span>
-                <span>Works in 25+ countries</span>
+              <div class="flex items-center space-x-3 before-line">
+                <div class="w-2 h-2 bg-neon-orange rounded-full"></div>
+                <span class="text-gray-300">Active in 25+ countries</span>
               </div>
             </div>
 
-            <!-- Enhanced CTAs -->
-            <div class="space-y-4">
-              <div class="flex flex-col sm:flex-row gap-4">
-                <button
-                  id="find-events-btn"
-                  class="bg-accent text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-pink-600 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+              <button
+                id="find-events-btn"
+                class="group relative px-10 py-4 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink rounded-2xl font-semibold text-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-neon-blue/50 neon-glow overflow-hidden"
+              >
+                <span
+                  class="relative z-10 flex items-center justify-center space-x-2"
                 >
-                  🎉 Find Events This Weekend
-                </button>
-                <button
-                  class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-800 transition-colors"
+                  <span>🎉</span>
+                  <span>Find Events This Weekend</span>
+                </span>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-neon-pink via-neon-purple to-neon-blue opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                ></div>
+              </button>
+
+              <button
+                class="group px-10 py-4 glass-morphism rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-white/20 border border-white/20 hover:border-neon-blue/50"
+              >
+                <span class="flex items-center justify-center space-x-2">
+                  <span>📅</span>
+                  <span>Launch Event in 48hrs</span>
+                </span>
+              </button>
+            </div>
+
+            <!-- Live Stats -->
+            <div class="flex items-center space-x-8 pt-4">
+              <div class="text-center">
+                <div
+                  class="text-2xl font-bold text-neon-blue"
+                  id="weekend-events"
                 >
-                  📅 Launch Event in 48hrs
-                </button>
+                  127
+                </div>
+                <div class="text-xs text-gray-400">events this weekend</div>
               </div>
-              <p class="text-sm text-gray-200">
-                🔥 <span class="font-semibold">This weekend:</span>
-                <span id="weekend-events">127 events</span> in
-                <span id="weekend-cities">23 cities</span>
-              </p>
+              <div class="text-center">
+                <div
+                  class="text-2xl font-bold text-neon-pink"
+                  id="weekend-cities"
+                >
+                  23
+                </div>
+                <div class="text-xs text-gray-400">cities active</div>
+              </div>
+              <div class="text-center">
+                <div
+                  class="text-2xl font-bold text-neon-green"
+                  id="partners-matched"
+                >
+                  156
+                </div>
+                <div class="text-xs text-gray-400">partners matched today</div>
+              </div>
             </div>
           </div>
 
-          <!-- Enhanced Right Side -->
-          <div class="text-center">
-            <div class="relative">
-              <div class="dance-animation text-8xl mb-4">💃</div>
-
-              <!-- Live Activity Indicators -->
+          <!-- Right Visual Content -->
+          <div class="relative animate-slide-up">
+            <!-- Main 3D Card -->
+            <div class="relative perspective-card">
+              <!-- Holographic Dancing Figure -->
               <div
-                class="absolute -top-4 -right-4 bg-green-500 text-white text-xs px-2 py-1 rounded-full animate-pulse"
+                class="relative glass-morphism rounded-3xl p-8 hover:shadow-2xl hover:shadow-neon-purple/25 transition-all duration-500"
               >
-                🟢 <span id="dancers-online">247</span> online
-              </div>
+                <!-- Dance Animation -->
+                <div class="text-center mb-6">
+                  <div class="text-9xl animate-float mb-4">💃</div>
+                  <div
+                    class="absolute top-4 right-4 glass-morphism rounded-full px-3 py-1"
+                  >
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-2 h-2 bg-neon-green rounded-full animate-pulse"
+                      ></div>
+                      <span
+                        class="text-xs text-neon-green font-space"
+                        id="dancers-online-hero"
+                        >15,247</span
+                      >
+                      <span class="text-xs text-gray-400">online</span>
+                    </div>
+                  </div>
+                </div>
 
-              <!-- Recent Activity Feed -->
-              <div
-                class="bg-white/10 backdrop-blur-sm rounded-lg p-4 mt-6 text-left"
-              >
-                <h4 class="font-semibold mb-3 text-center">Live Activity</h4>
-                <div class="space-y-2 text-sm">
-                  <div class="flex items-center space-x-2">
-                    <span
-                      class="w-6 h-6 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full text-xs flex items-center justify-center"
-                      >M</span
+                <!-- Live Activity Stream -->
+                <div class="space-y-3">
+                  <h4 class="text-center font-semibold text-gray-300 mb-4">
+                    Live Community
+                  </h4>
+
+                  <div class="space-y-3">
+                    <div
+                      class="flex items-center space-x-3 glass-morphism rounded-xl p-3 hover:bg-white/10 transition-colors animate-slide-in"
+                      style="animation-delay: 0.2s"
                     >
-                    <span>Maria joined Berlin Salsa Community</span>
-                    <span class="text-yellow-200">2m ago</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <span
-                      class="w-6 h-6 bg-gradient-to-r from-blue-400 to-green-400 rounded-full text-xs flex items-center justify-center"
-                      >J</span
+                      <div
+                        class="w-8 h-8 bg-gradient-to-r from-neon-pink to-neon-purple rounded-full flex items-center justify-center text-sm font-bold"
+                      >
+                        M
+                      </div>
+                      <div class="flex-1">
+                        <div class="text-sm text-white">
+                          Maria joined Berlin Salsa
+                        </div>
+                        <div class="text-xs text-neon-blue">2 minutes ago</div>
+                      </div>
+                      <div class="text-lg">💃</div>
+                    </div>
+
+                    <div
+                      class="flex items-center space-x-3 glass-morphism rounded-xl p-3 hover:bg-white/10 transition-colors animate-slide-in"
+                      style="animation-delay: 0.4s"
                     >
-                    <span>Jazz Event "Swing Night" just sold out</span>
-                    <span class="text-yellow-200">5m ago</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <span
-                      class="w-6 h-6 bg-gradient-to-r from-orange-400 to-red-400 rounded-full text-xs flex items-center justify-center"
-                      >C</span
+                      <div
+                        class="w-8 h-8 bg-gradient-to-r from-neon-blue to-neon-green rounded-full flex items-center justify-center text-sm font-bold"
+                      >
+                        J
+                      </div>
+                      <div class="flex-1">
+                        <div class="text-sm text-white">
+                          "Swing Night" sold out!
+                        </div>
+                        <div class="text-xs text-neon-green">5 minutes ago</div>
+                      </div>
+                      <div class="text-lg">🎷</div>
+                    </div>
+
+                    <div
+                      class="flex items-center space-x-3 glass-morphism rounded-xl p-3 hover:bg-white/10 transition-colors animate-slide-in"
+                      style="animation-delay: 0.6s"
                     >
-                    <span>Carlos found a dance partner!</span>
-                    <span class="text-yellow-200">8m ago</span>
+                      <div
+                        class="w-8 h-8 bg-gradient-to-r from-neon-orange to-neon-pink rounded-full flex items-center justify-center text-sm font-bold"
+                      >
+                        C
+                      </div>
+                      <div class="flex-1">
+                        <div class="text-sm text-white">
+                          Carlos found a partner!
+                        </div>
+                        <div class="text-xs text-neon-orange">
+                          8 minutes ago
+                        </div>
+                      </div>
+                      <div class="text-lg">🤝</div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Floating Stats Cards -->
+              <div
+                class="absolute -left-8 top-1/2 transform -translate-y-1/2 glass-morphism rounded-2xl p-4 animate-float"
+                style="animation-delay: 1s"
+              >
+                <div class="text-center">
+                  <div class="text-xl font-bold text-neon-blue">48hrs</div>
+                  <div class="text-xs text-gray-400">to launch</div>
+                </div>
+              </div>
+
+              <div
+                class="absolute -right-8 top-1/3 glass-morphism rounded-2xl p-4 animate-float"
+                style="animation-delay: 2s"
+              >
+                <div class="text-center">
+                  <div class="text-xl font-bold text-neon-pink">4.9★</div>
+                  <div class="text-xs text-gray-400">rating</div>
+                </div>
+              </div>
+
+              <div
+                class="absolute -right-4 bottom-8 glass-morphism rounded-2xl p-4 animate-float"
+                style="animation-delay: 3s"
+              >
+                <div class="text-center">
+                  <div class="text-xl font-bold text-neon-green">$0</div>
+                  <div class="text-xs text-gray-400">hidden fees</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+          class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+        >
+          <div class="flex flex-col items-center space-y-2">
+            <span class="text-xs text-gray-400 font-space"
+              >Scroll to explore</span
+            >
+            <div
+              class="w-1 h-8 glass-morphism rounded-full relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 left-0 w-full h-2 bg-neon-blue rounded-full animate-bounce"
+              ></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Success Metrics -->
-    <section class="py-12 bg-gray-100">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div class="text-3xl font-bold text-primary" id="partners-found">
-              15,247
+    <!-- Success Metrics - Floating Cards -->
+    <section class="py-24 relative overflow-hidden">
+      <!-- Background -->
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"
+      ></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-clash font-bold text-gradient mb-4">
+            Making Moves, Not Just Posts
+          </h2>
+          <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+            Real impact, real numbers, real dancers building their communities
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="perspective-card">
+            <div
+              class="glass-morphism rounded-3xl p-8 text-center hover:bg-white/10 transition-all duration-500 group"
+            >
+              <div
+                class="text-5xl font-bold text-gradient mb-2"
+                id="partners-found-metric"
+              >
+                15,247
+              </div>
+              <div class="text-sm text-gray-400 mb-4">
+                dancers found partners
+              </div>
+              <div class="w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                <div
+                  class="h-full bg-gradient-to-r from-neon-pink to-neon-purple rounded-full animate-shimmer"
+                  style="width: 85%"
+                ></div>
+              </div>
+              <div
+                class="text-xs text-neon-pink mt-2 group-hover:text-white transition-colors"
+              >
+                this month
+              </div>
             </div>
-            <p class="text-gray-600 text-sm">
-              dancers found partners this month
-            </p>
           </div>
-          <div>
-            <div class="text-3xl font-bold text-primary" id="events-launched">
-              892
+
+          <div class="perspective-card">
+            <div
+              class="glass-morphism rounded-3xl p-8 text-center hover:bg-white/10 transition-all duration-500 group"
+            >
+              <div
+                class="text-5xl font-bold text-gradient mb-2"
+                id="events-launched-metric"
+              >
+                892
+              </div>
+              <div class="text-sm text-gray-400 mb-4">events launched</div>
+              <div class="w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                <div
+                  class="h-full bg-gradient-to-r from-neon-blue to-neon-green rounded-full animate-shimmer"
+                  style="width: 92%"
+                ></div>
+              </div>
+              <div
+                class="text-xs text-neon-blue mt-2 group-hover:text-white transition-colors"
+              >
+                successfully
+              </div>
             </div>
-            <p class="text-gray-600 text-sm">events launched successfully</p>
           </div>
-          <div>
-            <div class="text-3xl font-bold text-primary">30%</div>
-            <p class="text-gray-600 text-sm">average attendance increase</p>
+
+          <div class="perspective-card">
+            <div
+              class="glass-morphism rounded-3xl p-8 text-center hover:bg-white/10 transition-all duration-500 group"
+            >
+              <div class="text-5xl font-bold text-gradient mb-2">+30%</div>
+              <div class="text-sm text-gray-400 mb-4">attendance boost</div>
+              <div class="w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                <div
+                  class="h-full bg-gradient-to-r from-neon-green to-neon-orange rounded-full animate-shimmer"
+                  style="width: 78%"
+                ></div>
+              </div>
+              <div
+                class="text-xs text-neon-green mt-2 group-hover:text-white transition-colors"
+              >
+                vs other platforms
+              </div>
+            </div>
           </div>
-          <div>
-            <div class="text-3xl font-bold text-primary">$2,400</div>
-            <p class="text-gray-600 text-sm">
-              average monthly teacher earnings
-            </p>
+
+          <div class="perspective-card">
+            <div
+              class="glass-morphism rounded-3xl p-8 text-center hover:bg-white/10 transition-all duration-500 group"
+            >
+              <div class="text-5xl font-bold text-gradient mb-2">$2,400</div>
+              <div class="text-sm text-gray-400 mb-4">avg teacher income</div>
+              <div class="w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                <div
+                  class="h-full bg-gradient-to-r from-neon-orange to-neon-pink rounded-full animate-shimmer"
+                  style="width: 95%"
+                ></div>
+              </div>
+              <div
+                class="text-xs text-neon-orange mt-2 group-hover:text-white transition-colors"
+              >
+                per month
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Quote -->
+        <div class="mt-16 text-center">
+          <div
+            class="glass-morphism rounded-2xl p-8 max-w-4xl mx-auto relative"
+          >
+            <div
+              class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full flex items-center justify-center text-2xl"
+            >
+              💬
+            </div>
+            <blockquote class="text-2xl font-light text-gray-200 mb-4">
+              "WeDance didn't just change how I find events—it transformed my
+              entire dance journey."
+            </blockquote>
+            <cite class="text-sm text-neon-blue font-medium"
+              >— Maria Rodriguez, Berlin Salsa Community Leader</cite
+            >
           </div>
         </div>
       </div>
@@ -429,43 +1042,71 @@
       </div>
     </section>
 
-    <!-- Value Propositions -->
-    <section id="events" class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-gray-800 mb-4">
-            Dance Without Borders
+    <!-- Interactive Persona Experience -->
+    <section id="events" class="py-32 relative overflow-hidden">
+      <!-- Dynamic Background -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"
+      ></div>
+      <div class="absolute inset-0 mesh-gradient opacity-30"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+          <h2 class="text-5xl lg:text-7xl font-clash font-bold mb-6">
+            <span class="text-white">Dance</span>
+            <span class="text-gradient"> Without Borders</span>
           </h2>
-          <p class="text-xl text-gray-600 mb-8">
+          <p class="text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-light">
             From Tokyo to Berlin, find your next favorite party
           </p>
 
-          <!-- Quick Persona Selector -->
-          <div class="flex justify-center mb-12">
-            <div class="bg-gray-100 p-2 rounded-lg inline-flex space-x-2">
+          <!-- 3D Persona Selector -->
+          <div class="flex justify-center mb-16">
+            <div class="glass-morphism rounded-3xl p-3 inline-flex space-x-2">
               <button
-                class="persona-btn active bg-white px-4 py-2 rounded text-sm font-medium transition-colors"
+                class="persona-btn active group relative px-8 py-4 rounded-2xl font-medium transition-all duration-500 neon-glow"
                 data-persona="new"
               >
-                🌱 New Dancer
+                <span class="relative z-10 flex items-center space-x-3">
+                  <span class="text-2xl">🌱</span>
+                  <span class="text-white">New Dancer</span>
+                </span>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-neon-green to-neon-blue rounded-2xl opacity-20"
+                ></div>
               </button>
               <button
-                class="persona-btn px-4 py-2 rounded text-sm font-medium transition-colors hover:bg-white/50"
+                class="persona-btn group relative px-8 py-4 rounded-2xl font-medium transition-all duration-500 hover:bg-white/10"
                 data-persona="social"
               >
-                🕺 Social Dancer
+                <span class="relative z-10 flex items-center space-x-3">
+                  <span class="text-2xl">🕺</span>
+                  <span class="text-gray-300 group-hover:text-white"
+                    >Social Dancer</span
+                  >
+                </span>
               </button>
               <button
-                class="persona-btn px-4 py-2 rounded text-sm font-medium transition-colors hover:bg-white/50"
+                class="persona-btn group relative px-8 py-4 rounded-2xl font-medium transition-all duration-500 hover:bg-white/10"
                 data-persona="organizer"
               >
-                🎪 Organizer
+                <span class="relative z-10 flex items-center space-x-3">
+                  <span class="text-2xl">🎪</span>
+                  <span class="text-gray-300 group-hover:text-white"
+                    >Organizer</span
+                  >
+                </span>
               </button>
               <button
-                class="persona-btn px-4 py-2 rounded text-sm font-medium transition-colors hover:bg-white/50"
+                class="persona-btn group relative px-8 py-4 rounded-2xl font-medium transition-all duration-500 hover:bg-white/10"
                 data-persona="artist"
               >
-                🎨 Artist
+                <span class="relative z-10 flex items-center space-x-3">
+                  <span class="text-2xl">🎨</span>
+                  <span class="text-gray-300 group-hover:text-white"
+                    >Artist</span
+                  >
+                </span>
               </button>
             </div>
           </div>
@@ -1182,10 +1823,54 @@
       </div>
     </footer>
 
-    <!-- Interactive JavaScript -->
+    <!-- Advanced Interactive JavaScript -->
     <script>
-      // Persona Selector Functionality
+      // Modern 2025 Interactive Features
       document.addEventListener("DOMContentLoaded", function () {
+        // Custom Cursor System
+        const cursorDot = document.getElementById("cursor-dot");
+        const cursorOutline = document.getElementById("cursor-outline");
+
+        if (cursorDot && cursorOutline && window.innerWidth > 768) {
+          document.addEventListener("mousemove", (e) => {
+            cursorDot.style.left = e.clientX + "px";
+            cursorDot.style.top = e.clientY + "px";
+
+            cursorOutline.style.left = e.clientX + "px";
+            cursorOutline.style.top = e.clientY + "px";
+          });
+
+          // Cursor interactions
+          document
+            .querySelectorAll("button, a, .cursor-hover")
+            .forEach((el) => {
+              el.addEventListener("mouseenter", () => {
+                cursorOutline.style.width = "60px";
+                cursorOutline.style.height = "60px";
+                cursorOutline.style.borderColor = "#00d4ff";
+              });
+
+              el.addEventListener("mouseleave", () => {
+                cursorOutline.style.width = "40px";
+                cursorOutline.style.height = "40px";
+                cursorOutline.style.borderColor = "rgba(0, 212, 255, 0.5)";
+              });
+            });
+        }
+
+        // Scroll Progress Indicator
+        const scrollIndicator = document.getElementById("scroll-indicator");
+        if (scrollIndicator) {
+          window.addEventListener("scroll", () => {
+            const scrollProgress =
+              (window.scrollY /
+                (document.documentElement.scrollHeight - window.innerHeight)) *
+              100;
+            scrollIndicator.style.transform = `scaleX(${scrollProgress / 100})`;
+          });
+        }
+
+        // Advanced Persona Selector
         const personaBtns = document.querySelectorAll(".persona-btn");
         const personaContents = document.querySelectorAll(".persona-content");
 
@@ -1193,88 +1878,77 @@
           btn.addEventListener("click", function () {
             const targetPersona = this.getAttribute("data-persona");
 
-            // Remove active from all buttons and contents
+            // Remove active states
             personaBtns.forEach((b) => {
-              b.classList.remove("active", "bg-white");
-              b.classList.add("hover:bg-white/50");
+              b.classList.remove("active", "neon-glow");
+              b.querySelector("span span:last-child").classList.remove(
+                "text-white"
+              );
+              b.querySelector("span span:last-child").classList.add(
+                "text-gray-300"
+              );
+              const bg = b.querySelector(".absolute");
+              if (bg) bg.style.opacity = "0";
             });
+
             personaContents.forEach((content) => {
-              content.classList.add("hidden");
+              content.classList.add("hidden", "opacity-0");
               content.classList.remove("active");
             });
 
-            // Add active to clicked button and corresponding content
-            this.classList.add("active", "bg-white");
-            this.classList.remove("hover:bg-white/50");
-            document
-              .querySelector(
-                `.persona-content[data-persona="${targetPersona}"]`
-              )
-              .classList.remove("hidden");
-            document
-              .querySelector(
-                `.persona-content[data-persona="${targetPersona}"]`
-              )
-              .classList.add("active");
+            // Add active to clicked button
+            this.classList.add("active", "neon-glow");
+            this.querySelector("span span:last-child").classList.remove(
+              "text-gray-300"
+            );
+            this.querySelector("span span:last-child").classList.add(
+              "text-white"
+            );
+            const activeBg = this.querySelector(".absolute");
+            if (activeBg) activeBg.style.opacity = "0.2";
+
+            // Show corresponding content with animation
+            const targetContent = document.querySelector(
+              `.persona-content[data-persona="${targetPersona}"]`
+            );
+            if (targetContent) {
+              setTimeout(() => {
+                targetContent.classList.remove("hidden");
+                setTimeout(() => {
+                  targetContent.classList.remove("opacity-0");
+                  targetContent.classList.add("active");
+                }, 50);
+              }, 150);
+            }
           });
         });
 
-        // Live Counter Animation
-        function animateCounters() {
+        // Live Counter Animations with Advanced Effects
+        function createAdvancedCounters() {
           const counters = [
+            { id: "live-dancers", start: 15200, end: 15300, speed: 15000 },
+            { id: "events-happening", start: 120, end: 140, speed: 8000 },
+            { id: "new-signups", start: 20, end: 30, speed: 12000 },
             {
-              id: "live-counter",
-              start: 235,
-              end: 267,
-              increment: () => (Math.random() > 0.7 ? 1 : 0),
+              id: "dancers-online-hero",
+              start: 15200,
+              end: 15300,
+              speed: 15000,
+            },
+            { id: "weekend-events", start: 120, end: 140, speed: 8000 },
+            { id: "weekend-cities", start: 20, end: 30, speed: 12000 },
+            { id: "partners-matched", start: 150, end: 170, speed: 10000 },
+            {
+              id: "partners-found-metric",
+              start: 15200,
+              end: 15300,
+              speed: 20000,
             },
             {
-              id: "events-today",
-              start: 21,
-              end: 25,
-              increment: () => (Math.random() > 0.9 ? 1 : 0),
-            },
-            {
-              id: "new-members",
-              start: 8,
-              end: 15,
-              increment: () => (Math.random() > 0.8 ? 1 : 0),
-            },
-            {
-              id: "dancers-online",
-              start: 235,
-              end: 267,
-              increment: () => (Math.random() > 0.7 ? 1 : 0),
-            },
-            {
-              id: "weekend-events",
-              start: 120,
-              end: 135,
-              increment: () => (Math.random() > 0.95 ? 1 : 0),
-            },
-            {
-              id: "weekend-cities",
-              start: 21,
-              end: 25,
-              increment: () => (Math.random() > 0.98 ? 1 : 0),
-            },
-            {
-              id: "urgent-counter",
-              start: 120,
-              end: 135,
-              increment: () => (Math.random() > 0.95 ? 1 : 0),
-            },
-            {
-              id: "cities-active",
-              start: 21,
-              end: 25,
-              increment: () => (Math.random() > 0.98 ? 1 : 0),
-            },
-            {
-              id: "launch-counter",
-              start: 840,
-              end: 860,
-              increment: () => (Math.random() > 0.92 ? 1 : 0),
+              id: "events-launched-metric",
+              start: 880,
+              end: 900,
+              speed: 18000,
             },
           ];
 
@@ -1282,135 +1956,177 @@
             const element = document.getElementById(counter.id);
             if (element) {
               let current = counter.start;
+              element.textContent = current.toLocaleString();
 
-              setInterval(() => {
-                if (current < counter.end && counter.increment()) {
-                  current++;
+              const interval = setInterval(() => {
+                if (Math.random() > 0.7 && current < counter.end) {
+                  current += Math.floor(Math.random() * 3) + 1;
                   element.textContent = current.toLocaleString();
 
-                  // Add flash effect
-                  element.style.transition = "all 0.3s ease";
+                  // Visual feedback
                   element.style.transform = "scale(1.1)";
-                  element.style.color = "#fbbf24"; // yellow-400
+                  element.style.color = "#00d4ff";
 
                   setTimeout(() => {
                     element.style.transform = "scale(1)";
                     element.style.color = "";
                   }, 300);
                 }
-              }, Math.random() * 10000 + 5000); // Random interval between 5-15 seconds
+              }, counter.speed);
             }
           });
         }
 
-        // Location Detection and Personalization
-        function detectLocationAndPersonalize() {
+        // Location Detection with Enhanced Personalization
+        function enhancedLocationDetection() {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
               function (position) {
-                // Simulate city detection (in real app, would use reverse geocoding)
                 const cities = [
-                  "Berlin",
-                  "Barcelona",
-                  "New York",
-                  "London",
-                  "Tokyo",
-                  "Paris",
-                  "Amsterdam",
-                  "Buenos Aires",
+                  {
+                    name: "Berlin",
+                    emoji: "🇩🇪",
+                    specialty: "techno & voguing",
+                  },
+                  {
+                    name: "Barcelona",
+                    emoji: "🇪🇸",
+                    specialty: "salsa & flamenco",
+                  },
+                  {
+                    name: "New York",
+                    emoji: "🇺🇸",
+                    specialty: "hip-hop & jazz",
+                  },
+                  {
+                    name: "London",
+                    emoji: "🇬🇧",
+                    specialty: "swing & ballroom",
+                  },
+                  {
+                    name: "Tokyo",
+                    emoji: "🇯🇵",
+                    specialty: "street & contemporary",
+                  },
+                  {
+                    name: "Buenos Aires",
+                    emoji: "🇦🇷",
+                    specialty: "tango & folklore",
+                  },
                 ];
+
                 const randomCity =
                   cities[Math.floor(Math.random() * cities.length)];
 
                 // Update location-aware elements
-                const locationText = document.getElementById("location-text");
-                if (locationText) {
-                  locationText.textContent = `in ${randomCity}`;
-                }
+                const locationElements =
+                  document.querySelectorAll("#location-text");
+                locationElements.forEach((el) => {
+                  el.innerHTML = `in ${randomCity.name} ${randomCity.emoji}`;
+                });
 
-                const locationCta = document.getElementById("location-cta");
-                if (locationCta) {
-                  locationCta.innerHTML = `🚀 Find Events in ${randomCity}`;
-                }
-
-                const findEventsBtn =
-                  document.getElementById("find-events-btn");
-                if (findEventsBtn) {
-                  findEventsBtn.innerHTML = `🎉 Find Events in ${randomCity}`;
-                }
+                const findEventsBtns =
+                  document.querySelectorAll("#find-events-btn");
+                findEventsBtns.forEach((btn) => {
+                  btn.innerHTML = `🎉 Find ${randomCity.specialty} in ${randomCity.name}`;
+                });
               },
               function (error) {
-                console.log("Location access denied, using default messaging");
+                console.log("Location access denied, using global messaging");
               }
             );
           }
         }
 
-        // Success Metrics Counter Animation
-        function animateSuccessMetrics() {
-          const metrics = [
-            {
-              id: "partners-found",
-              target: 15247,
-              increment: () =>
-                Math.random() > 0.85 ? Math.floor(Math.random() * 3) + 1 : 0,
-            },
-            {
-              id: "events-launched",
-              target: 892,
-              increment: () => (Math.random() > 0.9 ? 1 : 0),
-            },
-            {
-              id: "cta-events",
-              target: 892,
-              increment: () => (Math.random() > 0.9 ? 1 : 0),
-            },
-          ];
+        // Scroll-triggered Animations
+        function initScrollAnimations() {
+          const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px",
+          };
 
-          metrics.forEach((metric) => {
-            const element = document.getElementById(metric.id);
-            if (element) {
-              let current = metric.target - Math.floor(Math.random() * 20);
-              element.textContent = current.toLocaleString();
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-slide-up");
 
-              setInterval(() => {
-                const increase = metric.increment();
-                if (increase > 0) {
-                  current += increase;
-                  element.textContent = current.toLocaleString();
+                // Add staggered delay for multiple elements
+                const siblings = Array.from(entry.target.parentNode.children);
+                const index = siblings.indexOf(entry.target);
+                entry.target.style.animationDelay = `${index * 0.1}s`;
+              }
+            });
+          }, observerOptions);
 
-                  // Flash effect
-                  element.style.color = "#10b981"; // green-500
-                  setTimeout(() => {
-                    element.style.color = "";
-                  }, 500);
-                }
-              }, Math.random() * 30000 + 15000); // 15-45 second intervals
-            }
+          // Observe elements
+          document
+            .querySelectorAll(".perspective-card, .glass-morphism")
+            .forEach((el) => {
+              observer.observe(el);
+            });
+        }
+
+        // Magnetic Effect for Interactive Elements
+        function initMagneticEffects() {
+          document
+            .querySelectorAll(".magnetic-effect, button")
+            .forEach((el) => {
+              el.addEventListener("mousemove", (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+              });
+
+              el.addEventListener("mouseleave", () => {
+                el.style.transform = "translate(0px, 0px)";
+              });
+            });
+        }
+
+        // Advanced Background Animations
+        function initBackgroundEffects() {
+          // Floating shapes animation variations
+          const shapes = document.querySelectorAll(".shape");
+          shapes.forEach((shape, index) => {
+            const randomDelay = Math.random() * 2;
+            const randomDuration = 4 + Math.random() * 4;
+            shape.style.animationDelay = `${randomDelay}s`;
+            shape.style.animationDuration = `${randomDuration}s`;
+          });
+
+          // Mesh gradient movement
+          const meshGradients = document.querySelectorAll(".mesh-gradient");
+          meshGradients.forEach((mesh) => {
+            mesh.style.backgroundSize = "400% 400%";
           });
         }
 
-        // Testimonial Rotation (optional enhancement)
-        function rotateTestimonials() {
-          const testimonials = document.querySelectorAll(".testimonial-card");
-          let currentIndex = 0;
-
-          setInterval(() => {
-            // This could rotate testimonials if we had more than 3
-            // For now, just add subtle animations
-            testimonials.forEach((card, index) => {
-              if (index === currentIndex % testimonials.length) {
-                card.style.transform = "scale(1.02)";
-                setTimeout(() => {
-                  card.style.transform = "scale(1)";
-                }, 1000);
-              }
+        // Performance Optimizations
+        function optimizePerformance() {
+          // Reduced motion preference
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            document.querySelectorAll('[class*="animate"]').forEach((el) => {
+              el.style.animation = "none";
             });
-            currentIndex++;
-          }, 8000);
+          }
+
+          // Lazy load heavy animations
+          setTimeout(() => {
+            document.body.classList.add("animations-loaded");
+          }, 1000);
         }
 
-        // Add smooth scrolling to navigation links
+        // Initialize all systems
+        createAdvancedCounters();
+        enhancedLocationDetection();
+        initScrollAnimations();
+        initMagneticEffects();
+        initBackgroundEffects();
+        optimizePerformance();
+
+        // Add smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -1424,48 +2140,11 @@
           });
         });
 
-        // Initialize all features
-        animateCounters();
-        detectLocationAndPersonalize();
-        animateSuccessMetrics();
-
-        // Add hover effects to CTA buttons
-        const ctaButtons = document.querySelectorAll("button");
-        ctaButtons.forEach((button) => {
-          button.addEventListener("mouseenter", function () {
-            if (this.classList.contains("transform")) {
-              this.style.transform = "translateY(-2px) scale(1.02)";
-            }
-          });
-
-          button.addEventListener("mouseleave", function () {
-            if (this.classList.contains("transform")) {
-              this.style.transform = "";
-            }
-          });
-        });
-
-        // Simulate weekend event urgency
-        function updateEventUrgency() {
-          const urgencyElements = document.querySelectorAll("#urgent-counter");
-          urgencyElements.forEach((element) => {
-            let count = parseInt(element.textContent);
-            if (Math.random() > 0.9 && count > 100) {
-              count--;
-              element.textContent = count;
-              element.parentElement.style.color = "#ef4444"; // red-500
-              setTimeout(() => {
-                element.parentElement.style.color = "";
-              }, 2000);
-            }
-          });
-        }
-
-        setInterval(updateEventUrgency, 20000); // Every 20 seconds
-
+        // Log success
         console.log(
-          "🎉 WeDance Homepage Enhanced! Dance community platform loaded successfully."
+          "🎉 WeDance 2025: Advanced interactive features loaded successfully!"
         );
+        console.log("🌟 Welcome to the future of dance communities!");
       });
     </script>
   </body>
