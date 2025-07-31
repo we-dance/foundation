@@ -4,21 +4,38 @@ layout: home
 
 hero:
   name: "WeDance HQ"
-  text: "Internal Documentation"
-  tagline: Team resources, organization structure, and contribution guidelines for building the global dance platform together.
+  text: "Unite the Global Dance Community"
+  tagline: Transforming how dance communities connect, create, and thrive together through technology. Built by dancers, for dancers.
   actions:
     - theme: brand
-      text: Organization Canvas
-      link: /organization
+      text: User Documentation
+      link: /user-docs/
     - theme: alt
-      text: Brand Guidelines
-      link: /brand
+      text: Team Handbook
+      link: /handbook/
 
 features:
-  - title: 📋 Organization Structure
-    details: Understand our mission, values, business model, and strategic approach. Learn about our Sociocracy 3.0 governance and how decisions are made.
-  - title: 🎨 Brand & Identity
-    details: Brand guidelines, messaging, tone of voice, and visual identity standards. Ensure consistent communication across all WeDance touchpoints.
-  - title: 🤝 Contributing
-    details: How to get involved, contribute code, provide feedback, and help grow the platform. Resources for developers, designers, and community builders.
+  - title: 🕺 For Dancers
+    details: Discover events, find dance partners, book classes, and join communities. Your dance world, all in one place.
+    link: /user-docs/dancers/
+
+  - title: 🎪 For Organizers
+    details: Create events in 48 hours, manage tickets, promote effectively, and grow your community with powerful tools.
+    link: /user-docs/organizers/
+
+  - title: 🎨 For Artists & Teachers
+    details: Showcase your work, offer classes, get booked, and monetize your passion across the global dance scene.
+    link: /user-docs/artists/
+
+  - title: 🏢 For Venues
+    details: List your space, manage bookings, and partner with organizers to become the heart of your local dance community.
+    link: /user-docs/venues/
+
+  - title: 👥 Team Resources
+    details: Internal handbook with our processes, values, development workflow, and everything needed to build WeDance together.
+    link: /handbook/
+
+  - title: 🎨 Brand & Strategy
+    details: Mission, values, brand guidelines, and strategic direction. Our foundation for creating consistent, empowering experiences.
+    link: /brand
 ---
