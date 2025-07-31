@@ -1,3 +1,5 @@
 Read [Organization Canvas](docs/organization.md) and [Brand Guidelines](docs/brand.md) to better understand context.
+Check [navigation](docs/.vitepress/config.mts) for additional information you need.
+If pages updated update also navigation.
 
 When creating pages use tailwind from cdn, use images from internet (if needed).
