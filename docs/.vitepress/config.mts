@@ -7,6 +7,9 @@ export default defineConfig({
   ignoreDeadLinks: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    editLink: {
+      pattern: "https://github.com/we-dance/foundation/edit/main/docs/:path",
+    },
     nav: [
       { text: "Home", link: "/" },
       { text: "Handbook", link: "/handbook/" },
